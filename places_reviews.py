@@ -73,18 +73,3 @@ def create_review(place_id):
     review.save()
     return jsonify(review.to_dict()), 201
 
-@app_views.route('/places/<place_id>', methods=['PUT'],
-                 strict_slashes=False)
-def update_place(place_id):
-    "Updates a Place object"
-    place = storage.get(Place, place_id)
-    if not place:
-        abort(404)
-    json_d = request.get_json()
-    if not json_d:
-        abort(400, "Not a JSON")
-    for key, value in json_d.items():
-        if key not in ['id', 'user_id', 'city_id', 'created_at', 'updated_at']:
-            setattr(place, key, value)
-    storage.save()
-    return jsonify(place.to_dict()), 200
