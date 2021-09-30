@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""comment"""
 
 class Square():
 
@@ -7,6 +7,7 @@ class Square():
     height = 0
 
     def __init__(self, *args, **kwargs):
+        """comment"""
         for key, value in kwargs.items():
             setattr(self, key, value)
 
@@ -15,14 +16,16 @@ class Square():
         return self.width * self.height
 
     def permiter_of_my_square(self):
+        """comment"""
         return (self.width * 2) + (self.height * 2)
 
     def __str__(self):
+        """comment"""
         return "{}/{}".format(self.width, self.height)
 
 
 if __name__ == "__main__":
-
+    """comment"""
     s = Square(width=12, height=9)
     print(s)
     print(s.area_of_my_square())
